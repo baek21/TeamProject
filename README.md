@@ -1,1 +1,2 @@
-# teamProject
+# 지진 옥외대피장소 지도
+대학교 1학년 팀프로젝트입니다. spring framework를 사용했습니다.
