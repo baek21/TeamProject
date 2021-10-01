@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IApiShelterMapper">
+
+	<!-- 지진 옥외대피장소 정보 불러오기 -->
+	<select id="getShelterInfo" parameterType="ApiShelterDTO" resultType="ApiShelterDTO">
+		SELECT	CTPRVN_NM,
+				SGG_NM,
+				VT_ACMDFCLTY_NM,
+				DTL_ADRES,
+				XCORD,
+				YCORD,
+				CHG_DT,
+				CTPRVN_NM_CODE,
+				FCLTY_AR
+		FROM SHELTER_INFO
+		WHERE 1=1
+		<if test='ctprvn_nm_code != ""'>
+			<![CDATA[
+			AND CTPRVN_NM_CODE = #{ctprvn_nm_code}
+			]]>
+		</if>
+		
+	</select>
+
+</mapper>
